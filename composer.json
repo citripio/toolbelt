@@ -1,0 +1,17 @@
+{
+    "name": "citripio/toolbelt",
+    "description": "Helpers for citripio websites",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Alfredo Re",
+            "email": "alfredoreduarte@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
