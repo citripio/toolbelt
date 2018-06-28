@@ -48,10 +48,12 @@ class Toolbelt {
 		// 
 		$cookie_name = "fbMessengerBotRegistered";
 		$cookie_value = "true";
-		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+		// setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+		setcookie($cookie_name, $cookie_value, 0, "/"); // Will expire at the end of the session
 		$cookie_name_2 = "fbMessengerBotUserToken";
 		$cookie_value_2 = $_GET["utoken"];
-		setcookie($cookie_name_2, $cookie_value_2, time() + (86400 * 30), "/"); // 86400 = 1 day
+		// setcookie($cookie_name_2, $cookie_value_2, time() + (86400 * 30), "/"); // 86400 = 1 day
+		setcookie($cookie_name_2, $cookie_value_2, 0, "/"); // Will expire at the end of the session
 	}
 
 	function save_content_list_timestamps_in_cookies($content_list) {
@@ -60,7 +62,8 @@ class Toolbelt {
 			$date = $content["created_at_timestamp"];
 			array_push($listcontents, array("id" => $content["id"], "timestamp" => $date));
 		}
-		setcookie("listcontents", serialize($listcontents), time() + (86400 * 30), "/"); // 86400 = 1 day
+		// setcookie("listcontents", serialize($listcontents), time() + (86400 * 30), "/"); // 86400 = 1 day
+		setcookie("listcontents", serialize($listcontents), 0, "/"); // Will expire at the end of the session
 		// 
 		// Return the same array to be used when cookies are still not available for reading
 		// 
