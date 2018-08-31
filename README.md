@@ -7,9 +7,11 @@ Helpers for contentor websites in PHP
 Follow these steps in order to publish a new version. Remember to change the version number:
 
 ```
-git tag 1.0.1
+git tag 1.0.2
 git push --tags
 ```
+
+After a few seconds, the new version will show up on [Github](https://github.com/citripio/toolbelt/releases) and [Packagist](https://packagist.org/packages/citripio/toolbelt)
 
 ## Installation
 
