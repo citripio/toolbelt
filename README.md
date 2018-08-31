@@ -2,6 +2,15 @@
 
 Helpers for contentor websites in PHP
 
+## Development
+
+Follow these steps in order to publish a new version. Remember to change the version number:
+
+```
+git tag 1.0.1
+git push --tags
+```
+
 ## Installation
 
 Add this to your `composer.json`
