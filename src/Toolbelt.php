@@ -98,6 +98,19 @@ class Toolbelt {
 		return $verse_code[1];
 	}
 
+	function get_prayer_intro($content) {
+		$verse_code = null;
+		preg_match('/<pray_intro>(.*?)<\/pray_intro>/s', html_entity_decode($content), $verse_code);
+		return $verse_code[1];
+	}
+
+	function get_prayer($content) {
+		$verse_code = null;
+		preg_match('/<prayer>(.*?)<\/prayer>/s', html_entity_decode($content), $verse_code);
+		return $verse_code[1];
+	}
+
+
 	// 
 	// Performs a substr() that doesn't cut words, and appends "..." 
 	// 

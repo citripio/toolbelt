@@ -7,7 +7,7 @@ Helpers for contentor websites in PHP
 Follow these steps in order to publish a new version. Remember to change the version number:
 
 ```
-git tag 1.0.2
+git tag 1.1.0
 git push --tags
 ```
 
@@ -71,6 +71,14 @@ Receives a string and parses it for `<verse>`
 ### get_explanation()
 
 Receives a string and parses it for `<explanation>`
+
+### get_prayer_intro()
+
+Receives a string and parses it for `<prayer_intro>`
+
+### get_prayer()
+
+Receives a string and parses it for `<prayer>`
 
 ### substring_words($text, $length)
 
