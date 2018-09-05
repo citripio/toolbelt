@@ -7,7 +7,7 @@ Helpers for contentor websites in PHP
 Follow these steps in order to publish a new version. Remember to change the version number:
 
 ```
-git tag 1.1.0
+git tag 1.1.1
 git push --tags
 ```
 
