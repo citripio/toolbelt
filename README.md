@@ -4,9 +4,10 @@ Helpers for contentor websites in PHP
 
 ## Development
 
-Follow these steps in order to publish a new version. Remember to change the version number:
+Follow these steps in order to publish a new version. Remember to push your commits first and change the version number:
 
 ```
+git push
 git tag 1.1.1
 git push --tags
 ```
