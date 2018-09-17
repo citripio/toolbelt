@@ -11,16 +11,25 @@ class Toolbelt {
 	// Safely include specific GET params on redirects, for tracking
 	// 
 	function include_utms($url) {
-		if (isset($_GET["utm_source"]) && isset($_GET["utm_campaign"])) {
+		if (
+			isset($_GET["utm_source"]) || 
+			isset($_GET["utm_campaign"]) || 
+			isset($_GET["utm_medium"]) || 
+			isset($_GET["utm_term"]) || 
+			isset($_GET["utm_content"])
+		) {
 			$query = parse_url($url, PHP_URL_QUERY);
 			$utm_source = $_GET["utm_source"];
 			$utm_campaign = $_GET["utm_campaign"];
+			$utm_medium = $_GET["utm_medium"];
+			$utm_term = $_GET["utm_term"];
+			$utm_content = $_GET["utm_content"];
 
 			// Returns a string if the URL has parameters or NULL if not
 			if ($query) {
-				$result = "$url&utm_source=$utm_source&utm_campaign=$utm_campaign";
+				$result = "$url&utm_source=$utm_source&utm_campaign=$utm_campaign&utm_medium=$utm_medium&utm_term=$utm_term&utm_content=$utm_content";
 			} else {
-				$result = "$url?utm_source=$utm_source&utm_campaign=$utm_campaign";
+				$result = "$url?utm_source=$utm_source&utm_campaign=$utm_campaign&utm_medium=$utm_medium&utm_term=$utm_term&utm_content=$utm_content";
 			}
 			return $result;
 		}
