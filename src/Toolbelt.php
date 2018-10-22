@@ -119,6 +119,13 @@ class Toolbelt {
 		return $verse_code[1];
 	}
 
+	function get_content_part($content, $tag) {
+		$match = null;
+		$pattern = '/<' . $tag . '>(.*?)<\/' . $tag . '>/s';
+		preg_match($pattern, html_entity_decode($content), $match);
+		return $match[1];
+	}
+
 
 	// 
 	// Performs a substr() that doesn't cut words, and appends "..." 
