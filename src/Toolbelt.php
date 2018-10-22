@@ -16,7 +16,9 @@ class Toolbelt {
 			isset($_GET["utm_campaign"]) || 
 			isset($_GET["utm_medium"]) || 
 			isset($_GET["utm_term"]) || 
-			isset($_GET["utm_content"])
+			isset($_GET["utm_content"]) || 
+			isset($_GET["app"]) || 
+			isset($_GET["override_app"])
 		) {
 			$query = parse_url($url, PHP_URL_QUERY);
 			$utm_source = $_GET["utm_source"];
@@ -24,12 +26,14 @@ class Toolbelt {
 			$utm_medium = $_GET["utm_medium"];
 			$utm_term = $_GET["utm_term"];
 			$utm_content = $_GET["utm_content"];
+			$app = $_GET["app"];
+			$override_app = $_GET["override_app"];
 
 			// Returns a string if the URL has parameters or NULL if not
 			if ($query) {
-				$result = "$url&utm_source=$utm_source&utm_campaign=$utm_campaign&utm_medium=$utm_medium&utm_term=$utm_term&utm_content=$utm_content";
+				$result = "$url&utm_source=$utm_source&utm_campaign=$utm_campaign&utm_medium=$utm_medium&utm_term=$utm_term&utm_content=$utm_content&app=$app&override_app$override_app";
 			} else {
-				$result = "$url?utm_source=$utm_source&utm_campaign=$utm_campaign&utm_medium=$utm_medium&utm_term=$utm_term&utm_content=$utm_content";
+				$result = "$url?utm_source=$utm_source&utm_campaign=$utm_campaign&utm_medium=$utm_medium&utm_term=$utm_term&utm_content=$utm_content&app=$app&override_app$override_app";
 			}
 			return $result;
 		}
