@@ -4,11 +4,14 @@ Helpers for contentor websites in PHP
 
 ## Development
 
-Follow these steps in order to publish a new version. Remember to push your commits first and change the version number:
+Follow these steps in order to publish a new version.
+
+**Remember to always push your commits first, and then create the new version number tag:**
 
 ```
+git commit -m "Some meaningful comment"
 git push
-git tag 1.1.1
+git tag -a 1.0.0 -m "Version 1.0.0"
 git push --tags
 ```
 
@@ -37,7 +40,7 @@ $utils = new Citripio\Toolbelt();
 
 ## Methods
 
-### function get_content_part($content, $tag)
+### get_content_part($content, $tag)
 
 Receives a string and parses it for the given `<tag></tag>` name.
 
