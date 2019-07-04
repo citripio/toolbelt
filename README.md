@@ -37,6 +37,10 @@ $utils = new Citripio\Toolbelt();
 
 ## Methods
 
+### function get_content_part($content, $tag)
+
+Receives a string and parses it for the given `<tag></tag>` name.
+
 ### include_utms()
 
 Useful for redirects.
