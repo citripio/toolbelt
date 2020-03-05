@@ -51,7 +51,8 @@ class Toolbelt {
 		return $timestamp;
 	}
 
-	function save_user_token_and_session_in_cookies() {
+	function save_user_token_and_session_in_cookies($_utoken) {
+		$utoken = $_utoken == NULL ? $_GET["utoken"] : $_utoken;
 		// 
 		// Cookies are saved at /nuevo to avoid showing a subscription modal 
 		// when the user navigates to /leer in case it's using a new and 
@@ -62,7 +63,7 @@ class Toolbelt {
 		// setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 		setcookie($cookie_name, $cookie_value, 0, "/"); // Will expire at the end of the session
 		$cookie_name_2 = "fbMessengerBotUserToken";
-		$cookie_value_2 = $_GET["utoken"];
+		$cookie_value_2 = $utoken;
 		// setcookie($cookie_name_2, $cookie_value_2, time() + (86400 * 30), "/"); // 86400 = 1 day
 		setcookie($cookie_name_2, $cookie_value_2, 0, "/"); // Will expire at the end of the session
 	}
@@ -135,22 +136,25 @@ class Toolbelt {
 	function substring_words($content, $length) {
 		$result = null;
 		if ($length > 0) {
-			if (preg_match('/^.{1,'. $length .'}\b/s', $content, $match)) {
+			if (
+				strlen($original) > $length &&
+				preg_match('/^.{1,' . $length . '}("|\b)/s', $original, $match)
+			) {
 				$line = $match[0];
 				$result = $line;
 				if (
-					strlen($content) > $length && 
-					substr($line, -1) != '.' && 
-					substr($line, -1) != ',' ) {
-						$result = $result . '...';
+					strlen($original) > $length &&
+					substr($line, -1) != '.' &&
+					substr($line, -1) != ' ' &&
+					substr($line, -1) != ','
+				) {
+					$result = $result . '...';
 				}
+			} else {
+				$result = $original;
 			}
-			else {
-				$result = $content;
-			}
-		}
-		else {
-			$result = $content;
+		} else {
+			$result = $original;
 		}
 		return $result;
 	}
