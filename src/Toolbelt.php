@@ -51,7 +51,7 @@ class Toolbelt {
 		return $timestamp;
 	}
 
-	function save_user_token_and_session_in_cookies($_utoken) {
+	function save_user_token_and_session_in_cookies($_utoken = NULL) {
 		$utoken = $_utoken == NULL ? $_GET["utoken"] : $_utoken;
 		// 
 		// Cookies are saved at /nuevo to avoid showing a subscription modal 
