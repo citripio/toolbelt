@@ -137,13 +137,13 @@ class Toolbelt {
 		$result = null;
 		if ($length > 0) {
 			if (
-				strlen($original) > $length &&
-				preg_match('/^.{1,' . $length . '}("|\b)/s', $original, $match)
+				strlen($content) > $length &&
+				preg_match('/^.{1,' . $length . '}("|\b)/s', $content, $match)
 			) {
 				$line = $match[0];
 				$result = $line;
 				if (
-					strlen($original) > $length &&
+					strlen($content) > $length &&
 					substr($line, -1) != '.' &&
 					substr($line, -1) != ' ' &&
 					substr($line, -1) != ','
@@ -151,10 +151,10 @@ class Toolbelt {
 					$result = $result . '...';
 				}
 			} else {
-				$result = $original;
+				$result = $content;
 			}
 		} else {
-			$result = $original;
+			$result = $content;
 		}
 		return $result;
 	}
